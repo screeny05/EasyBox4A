@@ -5,7 +5,7 @@ import time
 droid = android.Android()
 
 
-def keygen( mac ):
+def keygen(mac):
     bytes = [int(x, 16) for x in mac.split(':')]
     c1 = (bytes[-2] << 8) + bytes[-1]
     (s6, s7, s8, s9, s10) = [int(x) for x in '%05d' % (c1)]
@@ -27,12 +27,12 @@ def keygen( mac ):
 
 
 bssid = []
-ssid  = []
+ssid = []
 
 
 if droid.checkWifiState().result == False:
     droid.toggleWifiState()
-    droid.dialogCreateSpinnerProgress('','enabling wifi')
+    droid.dialogCreateSpinnerProgress('', 'enabling wifi')
     droid.dialogShow()
     time.sleep(2)
     droid.dialogDismiss()
